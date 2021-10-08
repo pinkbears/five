@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+		<style>
+			.tips{
+				background-color: bisque;
+				display:block;
+				width: 190px;
+			}
+			
+			
+			.box{
+				display: none;
+				width: 300px;
+				height:200px;
+				background-color: aliceblue;
+				border-radius: 10px;
+				margin: auto;
+				margin-top: 200px;
+				padding: 20px 50px;
+				text-align: center;
+			}
+			.input{
+				margin-bottom: 20px;
+			}
+		
+			
+			.passWord{
+				position: relative;
+			}
+			.fa-eye{
+				position: absolute;
+				margin-left:-20px;
+				margin-top: 2px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div>
+		<input type="checkbox" name=""> 十天内免登录
+		<div class="tips">
+			为了您的信息安全，请不要在网吧或公共电脑上使用此功能。
+		</div>
+		</div>
+
+		
+		<div>
+		<button>登录</button>
+			<button class="Cancel">取消</button>
+			<div class="box">
+				<h1>登录</h1>
+				<div class="input">
+					<input type="text" placeholder="用户名">
+				</div>
+				<div class="input">
+					<input type="password" placeholder="密码">
+				</div>
+				<div class="input">
+				<input type="button" value="登录">
+				</div>
+			</div>
+		</div>
+			
+			
+		<div>
+			<input  class="key">
+		</div>	
+			
+			
+		<div>
+			<input type="password" class="passWord">
+			<i class="fa fa-eye" id="eye"  onclick="change()"></i>
+		</div>
+		
+		
+	</body>
+	<script>
+		let tips=document.querySelector('.tips');
+		let checkBox=document.querySelector('input');
+		checkBox.addEventListener('mouseover',imformation);
+		function imformation(){
+			if(tips.style.display==='block'){
+				tips.style.display='none';
+			}
+			else{
+				tips.style.display='block';
+			}
+		}
+		checkBox.addEventListener('mouseout',disapper);
+		function disapper(){
+			if(tips.style.display==='none'){
+				tips.style.display='block';
+			}
+			else{
+				tips.style.display='none';
+			}
+		}
+		
+		
+		let boxs=document.querySelector('.box');
+		let Button=document.querySelector('button');
+		let Cancel=document.querySelector('.Cancel');
+		 Button.addEventListener('click',load);
+		 Cancel.addEventListener('click',cancel);
+		function load(){
+				boxs.style.display='block';
+		}
+		 function cancel(){
+				boxs.style.display='none';
+		}
+		
+		
+		let key=document.querySelector('.key');
+		let input=document.querySelector('input');
+		let oneCount=1;
+		if(oneCount===1){
+			input.textContent='关键字';
+		}
+		function tip(){
+			if (this.value=="关键字"){
+				this.value="";
+			}
+		}
+		function space(){
+			if (this.value==""){
+				this.value="关键字";
+			}
+		}
+		key.addEventListener('focus',tip);
+		key.addEventListener('blur',space);
+		
+		
+		let passWord=document.querySelector('.passWord');
+		let eye=document.querySelector('#eye');
+		function change(){
+			if (passWord.type=="password"){
+				passWord.type="text";
+			}
+			else{
+				passWord.type="password";
+			}
+		}
+		
+		</script>
+</html>

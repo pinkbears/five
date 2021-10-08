@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		body{
+				background-color: aliceblue;
+			}
+		ul,li{
+			margin: 0;
+			padding: 0;
+			list-style:none;
+		}
+		.item{
+			width: 350px;
+			height: 450px;
+			border:1px solid;
+			margin:50px auto;
+		}
+		.item .pic {
+			margin-bottom: 10px;
+		}
+
+		.item .pic img{
+			width:350px;
+			height: 350px;
+		}
+		
+		.item .list{
+			display: flex;
+		} 
+		.item .list .a{
+			margin:auto;
+		}
+		.item .list img{
+			display: block;
+			width: 50px;
+			height: 50px;
+		}
+		.item .list #current{
+			border: red solid ;
+		}
+		
+		
+		</style>
+	</head>
+	<body>
+		<div class="item" class="clearfx">
+			<div class="pic">
+				<img src="1.jpg" alt="">
+				
+			</div>
+			<ul class="list">
+				<li class="a" id="current">
+					<img src="1.jpg" alt="">
+				</li>
+				<li class="a">
+					<img src="2.jpg" alt="">
+				</li>
+				<li class="a">
+					<img src="3.jpg" alt="">
+				</li> 
+				<li class="a">
+					<img src="4.jpg" alt="">
+				</li>
+				<li class="a">
+					<img src="5.jpg" alt="">
+				</li>
+			</ul>
+		</div>
+		<script>
+			let list=document.querySelector('.list');
+			
+			list.addEventListener('onmouse' function(change));
+			for(let i=0;i<list.length;i++){
+				list[i].addEventListener('mouseover',change);
+			}
+			function change(){
+				if (this.src=="1.jpg""){
+					this.src="2.jpg"";
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>
